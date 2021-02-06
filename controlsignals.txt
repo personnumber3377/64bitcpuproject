@@ -1,0 +1,69 @@
+0: put external input on address bus
+1: general register a write enable
+2: manual value to instruction pointer
+3: general register a read enable
+4: program counter write enable
+5: program counter output enable
+6: general register b write enable
+7: general register b read enable
+8: alu store a
+9: alu subtract
+10: alu store b
+11: alu output enable
+12: instruction register write enable
+13: microinstruction counter (do not use!)
+14: instruction register output enable
+15: general register c write enable
+16: read enable general register c
+17: general register d output enable
+18: general register d write enable
+19: external input on data bus
+20: memory read enable
+21: memory write enable
+22: put higher part of instruction to lower part of address bus
+23 put higher part of instruction to lower part of data bus
+24: clear the microinstruction counter (for jumps)
+25: update flag register
+26: stack pointer write enable
+27: push (aka subtract one from stack pointer because the stack grows downwards)
+28: pop (increase stack pointer by one)
+29: stack pointer output enable on data bus
+30: manual value to stack pointer
+31: stack pointer output enable on address bus
+32: memory buffer register write enable
+33: memory buffer register read enable
+34: put data bus on address bus
+35: increment alu thingy
+36: put address bus on data bus
+37: write enable on the address buffer register thing
+38: read enable on the address buffer register thing
+39: rbp write enable
+40: rbp read enable
+
+
+opcodes:
+
+00000000 is nop
+00000001 is move address to a register
+00000010 is jump to address
+00000011 is jump if zero
+00000100 is subtract a value from a register
+00000101 is add value to a register
+00000110 is test value with a register
+00000111 is jump if less than or equal to
+00001000 is write a register to memory
+00001001 is jump if less than
+00001010 is mov address to reg b
+00001011 is subtract value from reg b
+00001100 is add value to reg b
+00001101 is test value with b register
+00001110 is write reg b to memory
+00001111 is add reg b to reg a and store in a
+00010000 is ret instruction
+00010001 is call instruction
+00010010 is push rbp
+00010011 is mov rsp, rbp
+00010100 is pop rbp
+
+
+the sequence in the flags register is that the first bit is zero the second bit is overflow and the third bit is less than
